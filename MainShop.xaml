@@ -12,6 +12,7 @@
     
     <Grid>
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Margin="10 10 10 10" Background="Tan" BorderBrush="Black" BorderThickness="1 1 1 1">
+            <MenuItem Header="Все" Click="MenuItem_Click" x:Name="All"/>
             <MenuItem Header="Напої" Margin="10 0 10 0">
                 <MenuItem Header="Вода" Click="MenuItem_Click" x:Name="Water"/>
                 <MenuItem Header="Соки" Click="MenuItem_Click" x:Name="Juice"/>

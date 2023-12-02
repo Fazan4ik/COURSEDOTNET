@@ -37,36 +37,62 @@ namespace COURSEDOTNET
             {
                 connection.Open();
 
-                string categoryCheckQuery = $"SELECT COUNT(*) FROM ProductsList WHERE TRIM(Category) = '{nameItem.Name}'";
-                using (SqlCommand categoryCheckCommand = new SqlCommand(categoryCheckQuery, connection))
+                if (nameItem.Name == "All")
                 {
-                    int categoryCount = (int)categoryCheckCommand.ExecuteScalar();
-                    if (categoryCount == 0)
+                    string query = "SELECT * FROM ProductsList";
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        MessageBox.Show($"Категорія '{nameItem.Header}' не знайдена в базі даних.");
-                        return;
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string productId = reader["Id"].ToString();
+                                string productName = reader["Name"].ToString();
+                                double productPrice = Convert.ToDouble(reader["Price"]);
+                                string categoryFolder = reader["Category"].ToString();
+                                string productImage = reader["Image"].ToString();
+                                string productQuantity = reader["Quantity"].ToString();
+
+                                AddProductList(productId, productName, productPrice, productImage, categoryFolder, productQuantity);
+                            }
+                        }
                     }
                 }
-
-                string query = $"SELECT * FROM ProductsList WHERE TRIM(Category) = '{nameItem.Name}'";
-                using (SqlCommand command = new SqlCommand(query, connection))
+                else
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string categoryCheckQuery = $"SELECT COUNT(*) FROM ProductsList WHERE TRIM(Category) = '{nameItem.Name}'";
+                    using (SqlCommand categoryCheckCommand = new SqlCommand(categoryCheckQuery, connection))
                     {
-                        while (reader.Read())
+                        int categoryCount = (int)categoryCheckCommand.ExecuteScalar();
+                        if (categoryCount == 0)
                         {
-                            string productId = reader["Id"].ToString();
-                            string productName = reader["Name"].ToString();
-                            double productPrice = Convert.ToDouble(reader["Price"]);
-                            string productImage = reader["Image"].ToString();
-                            string productQuantity = reader["Quantity"].ToString();
+                            MessageBox.Show($"Категорія '{nameItem.Header}' не знайдена в базі даних.");
+                            return;
+                        }
+                    }
 
-                            AddProductList(productId,productName, productPrice, productImage, nameItem.Name, productQuantity);
+                    string query = $"SELECT * FROM ProductsList WHERE TRIM(Category) = '{nameItem.Name}'";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string productId = reader["Id"].ToString();
+                                string productName = reader["Name"].ToString();
+                                double productPrice = Convert.ToDouble(reader["Price"]);
+                                string categoryFolder = reader["Category"].ToString();
+                                string productImage = reader["Image"].ToString();
+                                string productQuantity = reader["Quantity"].ToString();
+
+                                AddProductList(productId, productName, productPrice, productImage, categoryFolder, productQuantity);
+                            }
                         }
                     }
                 }
             }
         }
+
 
         private void AddProductList(string productId,string productName, double productPrice, string productImage,string categoryFolder,string productQuantity)
         {
