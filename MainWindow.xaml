@@ -47,8 +47,8 @@
 
             <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="70 0 0 0">
 
-                <Button x:Name="SigninButton" Content="Sign In" Click="SigninButton_Click" Margin="10 10 10 10" FontSize="40"/>
-                <Button x:Name="SignupButton" Content="Sign Up" Click="SignupButton_Click" Margin="10 10 10 10" FontSize="40"/>
+                <Button x:Name="SigninButton" Content="Sign In" Click="SigninButton_Click" Margin="10 10 10 20" FontSize="40"/>
+                <Button x:Name="SignupButton" Content="Sign Up" Click="SignupButton_Click" Margin="10 10 10 20" FontSize="40"/>
             </StackPanel>
             
         </Grid>
