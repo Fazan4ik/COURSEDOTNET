@@ -1,0 +1,27 @@
+﻿<Window x:Class="COURSEDOTNET.BasketShop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:COURSEDOTNET"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="Basket" Height="400" Width="700"
+        Icon="D:\visual studio projects\COURSEDOTNET\Icons\shoppingbasket.ico" Background="Tan">
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <TextBlock Text="Ваш кошик" FontSize="40" TextAlignment="Center"/>
+
+        <ScrollViewer Width="680" Height="250">
+            <StackPanel Orientation="Vertical" x:Name="BasketWrap">
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button x:Name="BuyButton" Content="Купити" Margin="10 10 10 10" FontSize="20" Click="BuyButton_Click"/>
+            <Button x:Name="NextButton" Content="Продовжити покупки" Margin="10 10 10 10" FontSize="20" Click="NextButton_Click"/>
+        </StackPanel>
+    </StackPanel>
+
+
+
+</Window>

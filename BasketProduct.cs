@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,18 +8,26 @@ using System.Threading.Tasks;
 
 namespace COURSEDOTNET
 {
-    public class BasketProduct
-    {
-       public string ProductId { get; set; }
+        public class BasketProduct
+        {
+            public int Id { get; set; }
 
-        public string Name { get; set; }
+            public string Name { get; set; }
 
-      //  public string Category { get; set; }
+            public double PriceWithOne { get; set; }
 
-        public float PriceWithOne { get; set; }
+            public int NumQuantity { get; set; }
 
-        public int NumQuantity { get; set; }
+            public static BasketProduct FromDataReader(SqlDataReader reader)
+            {
+                return new BasketProduct
+                {
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    Name = reader.GetString(reader.GetOrdinal("Name")),
+                    PriceWithOne = reader.GetDouble(reader.GetOrdinal("PriceWithOne")),
+                    NumQuantity = reader.GetInt32(reader.GetOrdinal("NumQuantity"))
+                };
+            }
+        }
 
-    //    public string Image { get; set; }
-    }
 }

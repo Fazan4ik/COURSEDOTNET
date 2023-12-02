@@ -20,7 +20,8 @@ namespace COURSEDOTNET
 {
     public partial class MainWindow : Window
     {
-            private String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\visual studio projects\COURSEDOTNET\DataUsers.mdf"";Integrated Security=True";
+        public string ActiveEmail { get; private set; }
+        private String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\visual studio projects\COURSEDOTNET\DataUsers.mdf"";Integrated Security=True";
         public MainWindow()
         {
             InitializeComponent();
@@ -181,7 +182,9 @@ namespace COURSEDOTNET
                 }
                 else
                 {
-                    new MainShop().Show();
+                    ActiveEmail = textboxEmail.Text;
+                    var mainShop = new MainShop(ActiveEmail);
+                    mainShop.Show();
                     this.Close();
                 }
             }

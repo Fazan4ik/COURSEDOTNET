@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:COURSEDOTNET"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"        
-        Title="Shop list" Height="700" Width="1000" Background="Tan"
+        Closed="Window_Closed"
+        Title="Shop list" MinHeight="700" MinWidth="1000" Background="Tan"
         Icon="D:\visual studio projects\COURSEDOTNET\Icons\basket.ico">
     
     <Grid>
@@ -25,10 +25,12 @@
                 <MenuItem Header="Торти" Click="MenuItem_Click" x:Name="Cakes"/>
             </MenuItem>
         </Menu>
-        <Button Content="КОШИК" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 10 10 0" FontSize="25" Background="Tan" BorderBrush="Black"/>
+        <Button Content="КОШИК" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 10 10 0" FontSize="25" Background="Tan" BorderBrush="Black" x:Name="BasketButton" Click="BasketButton_Click"/>
 
         <ScrollViewer Background="tan" Margin="0 60 0 0" x:Name="ListProduct" >
-            <WrapPanel x:Name="ProductStackPanel" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" />
+            <WrapPanel x:Name="ProductStackPanel" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <TextBlock x:Name="textStart" Text="ВІТАЄМО ВАС У МАГАЗИНІ, ОБЕРІТЬ КАТЕГОРІЮ ЗВЕРХУ, ЩОБ ПРОДОВЖИТИ" FontSize="60" TextWrapping="Wrap" TextAlignment="Center" Margin="25 100 25 25"/>
+            </WrapPanel>
         </ScrollViewer>
 
     </Grid>
