@@ -33,7 +33,7 @@
 
             <Label Content="Email" Grid.Row="2" VerticalAlignment="Center" Margin="10 10 10 10" FontSize="40"/>
             <TextBox x:Name="textboxEmail" Grid.Row="2" Grid.Column="1" 
-                 VerticalAlignment="Center" Text="jagannath2006@outlook.com" FontSize="40" Margin="10 10 10 10"/>
+                 VerticalAlignment="Center" Text="" FontSize="40" Margin="10 10 10 10"/>
 
             <Label Content="Password" Grid.Row="3" VerticalAlignment="Center" Margin="10 10 10 10" FontSize="40" />
             <PasswordBox x:Name="textboxPassword" Grid.Row="3" Grid.Column="1" 
