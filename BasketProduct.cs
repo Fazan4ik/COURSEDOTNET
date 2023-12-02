@@ -17,17 +17,6 @@ namespace COURSEDOTNET
             public double PriceWithOne { get; set; }
 
             public int NumQuantity { get; set; }
-
-            public static BasketProduct FromDataReader(SqlDataReader reader)
-            {
-                return new BasketProduct
-                {
-                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                    Name = reader.GetString(reader.GetOrdinal("Name")),
-                    PriceWithOne = reader.GetDouble(reader.GetOrdinal("PriceWithOne")),
-                    NumQuantity = reader.GetInt32(reader.GetOrdinal("NumQuantity"))
-                };
-            }
         }
 
 }
