@@ -109,7 +109,7 @@ namespace COURSEDOTNET
                             double priceWithOne = reader.GetDouble(2); 
                             TextBlock productTextBlock = new TextBlock
                             {
-                                Text = $"Назва -> {productName} - Кількість - {numQuantity} - ціна од. - {priceWithOne} грн",
+                                Text = $"Назва -> {productName}, Кількість - {numQuantity}, ціна од. - {priceWithOne} грн",
                                 FontSize = 16,
                                 TextAlignment = TextAlignment.Center,
                                 Margin = new Thickness(5, 5, 5, 5)
@@ -178,7 +178,7 @@ namespace COURSEDOTNET
                 string messageBody = GetProductsFromDatabase();
 
 
-                messageBody += $"\nСумма замволення ->{CalculateTotalAmount()} грн\nПідтвердіть замовлення, надіславши відповідь.";
+                messageBody += $"\nСумма замволення -> {CalculateTotalAmount()} грн\nПідтвердіть замовлення, надіславши відповідь.";
 
                 if (smtpClient != null)
                 {
@@ -221,7 +221,7 @@ namespace COURSEDOTNET
                             string productName = reader.GetString(0);
                             int numQuantity = reader.GetInt32(1);
                             double priceWithOne = reader.GetDouble(2);
-                            messageBody += $"Назва -> {productName} - Кількість - {numQuantity} - ціна од. - {priceWithOne} грн\n";
+                            messageBody += $"Назва -> {productName}, Кількість - {numQuantity}, ціна од. - {priceWithOne} грн\n";
                         }
 
                     }
